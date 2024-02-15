@@ -13,7 +13,7 @@
             id="input-name"
             class="input-field"
             placeholder="Enter your name..."
-            v-model="v$.name.$model"
+            v-model.trim="v$.name.$model"
             @blur="v$.name.$touch"
             :class="{ 'is-invalid': v$.name.$error }"
           />
@@ -26,7 +26,7 @@
             id="input-email"
             class="input-field"
             placeholder="user@sample.com"
-            v-model="v$.email.$model"
+            v-model.trim="v$.email.$model"
             @blur="v$.email.$touch"
             :class="{ 'is-invalid': v$.email.$error }"
           />
@@ -44,7 +44,7 @@
             type="password"
             id="input-password"
             class="input-field"
-            v-model="v$.password.$model"
+            v-model.trim="v$.password.$model"
             @blur="v$.password.$touch"
             :class="{ 'is-invalid': v$.password.$error }"
           />
@@ -62,7 +62,7 @@
             type="password"
             id="confirm-password"
             class="input-field"
-            v-model="v$.passwordConfirm.$model"
+            v-model.trim="v$.passwordConfirm.$model"
             @blur="v$.passwordConfirm.$touch"
             :class="{ 'is-invalid': v$.passwordConfirm.$error }"
           />
@@ -152,6 +152,10 @@ export default {
   align-items: start;
 }
 .is-invalid {
+  border: 1px solid rgb(200, 1, 1);
+}
+.is-invalid:focus{
   outline: 1px solid rgb(200, 1, 1);
+  box-shadow: 1px 1px 8px rgb(255, 254, 254), -1px -1px 8px rgb(255, 255, 255);
 }
 </style>
